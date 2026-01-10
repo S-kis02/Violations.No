@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/index.js" defer></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div id="regist">
+        <h1>Регистрация</h1>
+        <form action="">
+            <p>Введите ФИО</p>
+            <input type="text" id="FIO">
+            <p id = "FIO_err">Обязательно для заполнения</p>
+            <p>Введите телефон</p>
+            <input type="text" id="phone_number">
+            <p id = "phone_number_err">Обязательно для заполнения</p>
+            <p>Введите электроную почту</p>
+            <input type="text" id="email">
+            <p id = "email_err">Обязательно для заполнения</p>
+            <p>Придумайте логин</p>
+            <input type="text" id="login_reg">
+            <p id = "login_reg_err">Обязательно для заполнения</p>
+            <p>Придумайте пароль</p>
+            <input type="password" name="" id="password_reg">
+            <p id = "password_reg_err">Обязательно для заполнения</p>
+            <p id = "password_reg_err2">Минимум 6 символов</p>
+            <input type="button" value="Зарегистрироваться" id="btn_reg">
+            <p>Уже зарегистрированы?</p>
+            <input type="button" value="Авторизоваться" id="btn_avto_go">
+        </form>
+    </div>
+    <div id="avtoris">
+        <h1>Авторизация</h1>
+        <form action="">
+            <p>Введите логин</p>
+            <input type="text" id="login_avto">
+            <p id = "login_avto_err">Обязательно для заполнения</p>
+            <p>Введите пароль</p>
+            <input type="password" name="" id="password_avto">
+            <p id = "password_avto_err">Обязательно для заполнения</p>
+            <p id = "undefined_err">Неправельный логин или пароль</p>
+            <input type="button" value="Авторизоваться" id="btn_avto">
+        </form>
+    </div>
+    <div id="final">
+        <h1>Вы успешно вошли!</h1>
+    </div>
+</body>
+</html>
