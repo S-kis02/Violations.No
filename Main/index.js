@@ -11,7 +11,7 @@ let btnAdd = document.getElementById("btnAdd")
 
 let statementsArr = JSON.parse(localStorage.getItem('statementsArr')) || []
 
-table.style.display = 'none'
+statements.style.display = 'none'
 
 function loadStatementsToTable() {
     const dataRows = table_statements.querySelectorAll('tr:not(:first-child)')
@@ -49,7 +49,7 @@ function applicationTime() {
 }
 
 function Status() {
-    return "На рассмотрении"
+    return "Новое"
 }
 
 function validation() {
@@ -60,7 +60,7 @@ function validation() {
         p_number.textContent = 'Введите номер автомобиля'
         flag = false
     } else {
-        number.style.backgroundColor = "rgb(147, 255, 255)"
+        number.style.backgroundColor = ""
         p_number.textContent = ""
     }
 
@@ -69,12 +69,17 @@ function validation() {
         p_violation.textContent = 'Опишите ситуацию'
         flag = false
     } else {
-        violation.style.backgroundColor = "rgb(147, 255, 255)"
+        violation.style.backgroundColor = ""
         p_violation.textContent = ""
     }
 
     return flag
 }
+
+btnExit.addEventListener('click', (e) => {
+    statements.style.display = 'none'
+    table.style.display = ''
+})
 
 btnSend.addEventListener('click', (e) => {
     e.preventDefault()

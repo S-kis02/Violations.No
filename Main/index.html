@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="statements">
-        <h1>Введите данные о происшествии</h1>
+        <h1 id="statements_h1">Введите данные о происшествии</h1>
         <div class="form">
             <form action="" id="form_violation">
                 <p>Государственный регистрационный номер автомобиля</p>
@@ -18,13 +18,14 @@
                 <p>Опишите нарушение</p>
                 <input type="text" id="violation">
                 <p class='warning' id="p_violation"></p>
+                <button id="btnExit">Назад</button>
                 <button id="btnSend">Отправить</button>
             </form>
         </div>
     </div>
 
     <div id="table">
-        <h1>Ваши заявления</h1>
+        <h1 id="table_h1">Ваши заявления</h1>
         <div id="tb">
             <table id="table_statements">
                 <tr>
