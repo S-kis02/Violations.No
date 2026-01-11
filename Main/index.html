@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js" defer></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="statements">
+        <h1>Введите данные о происшествии</h1>
+        <div class="form">
+            <form action="" id="form_violation">
+                <p>Государственный регистрационный номер автомобиля</p>
+                <input type="text" id="number">
+                <p class='warning' id="p_number"></p>
+                <p>Опишите нарушение</p>
+                <input type="text" id="violation">
+                <p class='warning' id="p_violation"></p>
+                <button id="btnSend">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="table">
+        <h1>Ваши заявления</h1>
+        <div id="tb">
+            <table id="table_statements">
+                <tr>
+                    <th>Время отправки нарушения</th>
+                    <th>Номер автомобиля</th>
+                    <th>Статус</th>
+                </tr>
+            </table>
+            <button id="btnAdd">Отправить новое заявление</button>
+        </div>
+    </div>
+</body>
+</html>
