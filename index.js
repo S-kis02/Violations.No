@@ -22,7 +22,27 @@ let password_avto_err = document.getElementById("password_avto_err")
 let undefined_err = document.getElementById("undefined_err")
 let btn_avto = document.getElementById("btn_avto")
 
-let final = document.getElementById("final")
+let statements = document.getElementById("statements")
+
+let table = document.getElementById("table")
+let table_statements = document.getElementById("table_statements")
+
+let form_violation = document.getElementById("form_violation")
+
+let number = document.getElementById("number")
+let violation = document.getElementById("violation")
+
+let p_number = document.getElementById("p_number")
+let p_violation = document.getElementById("p_violation")
+
+let btnSend = document.getElementById("btnSend")
+let btnAdd = document.getElementById("btnAdd")
+
+let statementsArr = []
+
+statements.style.display = 'none'
+
+table.style.display = 'none'
 
 div_avtoris.style.display = "none"
 
@@ -37,7 +57,7 @@ login_avto_err.style.display = "none"
 password_avto_err.style.display = "none"
 undefined_err.style.display = "none"
 
-final.style.display = "none"
+statements.style.display = "none"
 
 let flug = true
 
@@ -121,22 +141,24 @@ btn_reg.addEventListener('click', (e) => {
     if (validateRegist()) {
         let user = {
             FIO: FIO.value,
-            phone_number: phone_number.value,
-            email: email.value,
+            phone_number: phone_number.value.trim(),
+            email: email.value.trim(),
             login_reg: login_reg.value,
             password_reg: password_reg.value
         }
         users.push(user)
         localStorage.setItem('users', JSON.stringify(users))
-    
-        console.log(users)
 
         FIO.value = ""
         phone_number.value = ""
         email.value = ""
         login_reg.value = ""
         password_reg.value = ""
+        
+        div_regist.style.display = "none"
+        statements.style.display = "block"
     }
+
 })
 
 function validateAvto() {
@@ -182,6 +204,90 @@ btn_avto.addEventListener('click', (e) => {
         login_avto.value = ""
 
         div_avtoris.style.display = "none"
-        final.style.display = "block"
+        statements.style.display = "block"
     }
+})
+
+function applicationTime() {
+    const now = new Date()
+
+    const day = String(now.getDate()).padStart(2, '0')
+    const month = String(now.getMonth() + 1).padStart(2, '0')
+    const year = now.getFullYear()
+    const hours = String(now.getHours()).padStart(2, '0')
+    const minutes = String(now.getMinutes()).padStart(2, '0')
+    
+    return `${day}.${month}.${year} ${hours}:${minutes}`
+}
+
+function Status() {
+    // Пока просто возвращаем "На рассмотрении"
+    return "На рассмотрении"
+}
+
+function validation() {
+    let flag = true
+
+    if (number.value.trim() === "") {
+        number.style.backgroundColor = "rgb(255, 151, 151)"
+        p_number.textContent = 'Введите номер автомобиля'
+        flag = false
+    }
+    else{number.style.backgroundColor = "rgb(147, 255, 255)"
+    p_number.textContent = ""}
+
+    if (violation.value.trim() === "") {
+        violation.style.backgroundColor = "rgb(255, 151, 151)"
+        p_violation.textContent = 'Опишите ситуацию'
+        flag = false
+    }
+    else{violation.style.backgroundColor = "rgb(147, 255, 255)"
+    p_violation.textContent = ""}
+
+    return flag
+}
+
+btnSend.addEventListener('click',(e)=>{
+    e.preventDefault()
+
+    if (validation()) {
+        const currentTime = applicationTime()
+        const currentStatus = Status()
+
+        let statement = {
+            time: currentTime,
+            number: number.value,
+            violation: violation.value,
+            status: currentStatus
+        }
+
+        statementsArr.push(statement)
+        localStorage.setItem('statementsArr', JSON.stringify(statementsArr))
+
+        statements.style.display = 'none'
+        table.style.display = ''
+
+        let tr = document.createElement("tr")
+        table_statements.append(tr)
+
+        let td_time = document.createElement("td")
+        td_time.textContent = currentTime
+        tr.append(td_time)
+
+        let td_number = document.createElement("td")
+        td_number.textContent = number.value
+        tr.append(td_number)
+
+        let td_status = document.createElement("td")
+        td_status.textContent = currentStatus
+        tr.append(td_status)
+
+        form_violation.reset()
+    }   
+})
+
+btnAdd.addEventListener('click',(e)=>{
+    e.preventDefault()
+        statements.style.display = ''
+        table.style.display = 'none'
 })

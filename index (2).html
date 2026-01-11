@@ -18,7 +18,7 @@
             <input type="text" id="phone_number">
             <p id = "phone_number_err">Обязательно для заполнения</p>
             <p>Введите электроную почту</p>
-            <input type="text" id="email">
+            <input type="email" id="email">
             <p id = "email_err">Обязательно для заполнения</p>
             <p>Придумайте логин</p>
             <input type="text" id="login_reg">
@@ -32,6 +32,7 @@
             <input type="button" value="Авторизоваться" id="btn_avto_go">
         </form>
     </div>
+
     <div id="avtoris">
         <h1>Авторизация</h1>
         <form action="">
@@ -45,8 +46,34 @@
             <input type="button" value="Авторизоваться" id="btn_avto">
         </form>
     </div>
-    <div id="final">
-        <h1>Вы успешно вошли!</h1>
+
+    <div id="statements">
+    <h1>Введите данные о происшествие</h1>
+    <div class="form">
+            <form action="" id="form_violation">
+               <p>Государственный регистрационный номер автомобиля</p>
+                <input type="text" id="number">
+                <p class='warning' id="p_number"></p>
+                <p>Опишите нарушение</p>
+                <input type="text" id="violation">
+                <p class='warning' id="p_violation"></p>
+                <button id="btnSend">Отправить</button>
+            </form>
+        </div>
     </div>
+
+    <div id="table">
+        <h1>Ваши заявления</h1>
+        <div id="tb">
+        <table id = "table_statements">
+            <tr>
+                <th>Время отправки нарушения</th>
+                <th>Номер автомобиля</th>
+                <th>Статус</th>
+            </tr>
+        </table>
+        <button id="btnAdd">Отправить новое заявление</button>
+        </div>
+</div>
 </body>
 </html>
